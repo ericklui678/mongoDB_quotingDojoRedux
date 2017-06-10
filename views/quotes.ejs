@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Quote Page</title>
+    </head>
+    <body>
+        <h1>Here are the awesome quotes!</h1>
+        <% for (var i = 0; i < users.length; i++) { %>
+            "<%= users[i].quote %>"<br>
+            - <%= users[i].name %> at
+            <%= moment(users[i].createdAt).format('h:mma MMMM D, YYYY') %><br>
+            <%= users[i].likes %> likes <br>
+            <form action="/like/<%= users[i].id %>" method="post">
+                <input type="submit" name="submit" value="Like">
+            </form>
+            <br>
+            <hr>
+            <br>
+        <% } %>
+    </body>
+</html>
